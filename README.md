@@ -13,7 +13,7 @@
 <img src="assets/definition.png" width = "640" alt="Problem Definition" align=center/>
 </div>
 
-Welcome to the repository of **BlenderLLM**. **BlenderLLM** is a large-scale model specifically designed to generate CAD scripts based on user instructions. These scripts are then executed in Blender to render 3D models.
+Welcome to the repository of **BlenderLLM**. **BlenderLLM** is a large language model specifically designed to generate CAD scripts based on user instructions. These scripts are then executed in Blender to render 3D models.
 
 
 Here is a list of what has been released:
@@ -118,25 +118,19 @@ We utilized `GPT-4o` to evaluate the aforementioned test set, and the evaluation
 |                             | | | **CADBench-Sim** | | | | | **CADBench-Wild** | | |
 |-----------------------------|------------|------------|------------|--------------------|---------------|------------|------------|------------|--------------------|---------------|
 | **Models**                  | $Attr.$↑ | $Spat.$↑ | $Inst.$↑ | $Avg.$↑          | $E_{syntax}$↓ | $Attr.$↑ | $Spat.$↑ | $Inst.$↑ | $Avg.$↑          | $E_{syntax}$↓ |
-| **Closed-source Models**    |            |            |            |                    |               |            |            |            |                    |               |
 | o1-Preview                  | 0.729      | 0.707      | 0.624      | 0.687 ± 0.045      | 15.6%         | 0.595      | 0.612      | 0.542      | 0.583 ± 0.030      | 17.5%         |
 | GPT-4-Turbo                 | 0.658      | 0.621      | 0.488      | 0.589 ± 0.073      | 18.2%         | 0.526      | 0.541      | 0.478      | 0.515 ± 0.027      | 24.5%         |
 | Claude-3.5-Sonnet           | 0.687      | 0.608      | 0.482      | 0.593 ± 0.084      | 15.6%         | 0.529      | 0.508      | 0.430      | 0.489 ± 0.043      | 26.5%         |
 | GPT-4o                      | 0.623      | 0.593      | 0.479      | 0.565 ± 0.062      | 21.4%         | 0.460      | 0.466      | 0.408      | 0.444 ± 0.026      | 28.5%         |
 | BlenderGPT                  | 0.574      | 0.540      | 0.444      | 0.519 ± 0.055      | 25.2%         | 0.402      | 0.425      | 0.368      | 0.398 ± 0.023      | 35.0%         |
 | Gemini-1.5-Pro              | 0.535      | 0.483      | 0.387      | 0.468 ± 0.061      | 30.2%         | 0.375      | 0.404      | 0.361      | 0.380 ± 0.018      | 38.0%         |
-| **Open-source Models**      |            |            |            |                    |               |            |            |            |                    |               |
 | DeepSeek-V2.5               | 0.569      | 0.497      | 0.372      | 0.479 ± 0.081      | 25.2%         | 0.422      | 0.394      | 0.345      | 0.387 ± 0.032      | 34.0%         |
 | Qwen2.5-Coder-7B-Instruct   | 0.457      | 0.352      | 0.251      | 0.353 ± 0.084      | 31.4%         | 0.354      | 0.327      | 0.250      | 0.310 ± 0.044      | 37.0%         |
 | Qwen2.5                     | 0.367      | 0.274      | 0.193      | 0.278 ± 0.071      | 44.8%         | 0.220      | 0.219      | 0.170      | 0.203 ± 0.023      | 58.5%         |
 | LLaMA-3.1-8B-Instruct       | 0.125      | 0.087      | 0.071      | 0.094 ± 0.023      | 76.0%         | 0.130      | 0.127      | 0.105      | 0.120 ± 0.011      | 65.5%         |
 | Mistral-7B-Instruct-V0.3    | 0.015      | 0.018      | 0.015      | 0.016 ± 0.001      | 96.8%         | 0.023      | 0.031      | 0.030      | 0.028 ± 0.004      | 93.0%         |
 | CodeLLaMA-7B-Instruct       | 0.005      | 0.004      | 0          | 0.003 ± 0.002      | 98.8%         | 0.009      | 0.019      | 0.015      | 0.014 ± 0.004      | 96.5%         |
-| **BlenderLLMs (Ours)**      |            |            |            |                    |               |            |            |            |                    |               |
-| Iteration 1                 | 0.784      | 0.689      | 0.517      | 0.663 ± 0.111      | 5.8%          | 0.673      | 0.569      | 0.444      | 0.562 ± 0.094      | 6.0%          |
-| Iteration 2                 | 0.822      | 0.743      | 0.597      | 0.721 ± 0.093      | 5.2%          | 0.689      | 0.608      | 0.473      | 0.590 ± 0.089      | 6.0%          |
-| Iteration 3                 | **0.846**  | 0.760      | **0.638**  | **0.748 ± 0.085**  | 3.4%          | **0.739**  | **0.675**  | **0.578**  | **0.664 ± 0.066**  | **3.5%**      |
-| Iteration 4                 | **0.846**  | **0.767**  | 0.626      | 0.747 ± 0.091      | **3.2%**      | 0.717      | 0.614      | 0.493      | 0.608 ± 0.092      | 5.0%          |
+| **BlenderLLM**                 | **0.846**  | 0.760      | **0.638**  | **0.748 ± 0.085**  | 3.4%          | **0.739**  | **0.675**  | **0.578**  | **0.664 ± 0.066**  | **3.5%**      |
 
 
 <!-- ## ⚒️ Training
