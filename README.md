@@ -169,6 +169,37 @@ We utilized `GPT-4o` to evaluate LLMs on CADBench, and the evaluation results ar
 | Mistral-7B-Instruct-V0.3    | 0.015      | 0.018      | 0.015      | 0.016 ± 0.001      | 96.8%         | 0.023      | 0.031      | 0.030      | 0.028 ± 0.004      | 93.0%         |
 | CodeLLaMA-7B-Instruct       | 0.005      | 0.004      | 0          | 0.003 ± 0.002      | 98.8%         | 0.009      | 0.019      | 0.015      | 0.014 ± 0.004      | 96.5%         |
 
+
+<!-- ## ⚒️ Training
+### Prepare the Data
+You can download the SFT data from [HuatuoGPT-sft-data-v1](https://huggingface.co/datasets/FreedomIntelligence/HuatuoGPT-sft-data-v1) or buld your SFT data as the same schema.
+
+### Training
+You can train the model by:
+```bash
+accelerate launch \
+	--config_file scripts/sft.yaml \
+	--num_processes 8 \
+	--num_machines 1 \
+	--machine_rank 0 \
+	--deepspeed_multinode_launcher standard scripts/finetune.py \
+    --experiment_name HuatuoGPT \
+	--model_path /path/to/your/model \
+    --gradient_accumulation_steps 8 \
+    --max_ckpts 3 \
+    --max_seq_len 2048 \
+	--data_dir /path/to/your/data \
+	--output_dir ./ckpts \
+	--log_dir ./train_logs \
+	--n_epochs 3 \
+	--train_bsz_per_gpu 2 \
+	--eval_bsz_per_gpu 2 \
+	--learning_rate 5e-5 \
+	--eval_step -1 \
+	--save_step -1 \
+    --gradient_checkpointing
+``` -->
+
 ## 🌱 Limitations
 
 BlenderLLM aims to improve the efficiency and accessibility of CAD modeling tasks but has the following limitations:
