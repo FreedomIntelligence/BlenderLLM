@@ -1,4 +1,10 @@
+<!-- <div align="center">
+    <img src="assets/icon.svg" width="40" alt="Problem Definition" style="vertical-align: middle;"/>
+    <span style="font-size: 24px; font-weight: bold;">BlenderLLM: Training Large Language Models for Computer-Aided Design with Self-improvement</span>
+</div> -->
+
 # BlenderLLM: Training Large Language Models for Computer-Aided Design with Self-improvement
+
 
 <!-- ## ✨ Latest News
 - [12/11/2023]: 🎉🎉🎉 Our paper is accepted for EMNLP 2023! Check it out [here](https://aclanthology.org/2023.findings-emnlp.725/).
@@ -13,7 +19,7 @@
 <img src="assets/definition.png" width = "640" alt="Problem Definition" align=center/>
 </div>
 
-Welcome to the repository of **BlenderLLM**. **BlenderLLM** is a large-scale model specifically designed to generate CAD scripts based on user instructions. These scripts are then executed in Blender to render 3D models.
+Welcome to the repository of **BlenderLLM**. **BlenderLLM** is a large language model specifically designed to generate CAD scripts based on user instructions. These scripts are then executed in Blender to render 3D models.
 
 
 Here is a list of what has been released:
@@ -34,8 +40,7 @@ Here is a list of what has been released:
 
 - To ensure accessibility, local deployment, and privacy preservation through open-source CAD-oriented LLMs. By developing and releasing open-source models, we aim to democratize access to advanced tools, empower localized and secure deployments, and support diverse user needs in the CAD domain.  
 
-- To emphasize the importance of a comprehensive evaluation framework for CAD-oriented LLMs. Establishing rigorous evaluation methodologies is vital to assess and improve model performance, ensuring robust, reliable, and practical solutions for CAD applications.  
-
+- To emphasize the importance of a comprehensive evaluation framework for CAD-oriented LLMs. Establishing rigorous evaluation methodologies is vital to assess and improve model performance, ensuring robust, reliable, and practical solutions for CAD applications.
 
 
 ## 📚 Data-BlendNet
@@ -56,132 +61,126 @@ The figure below illustrates the complexity of tasks in the dataset, demonstrati
 <img src="assets/sta_distribution.png" width = "640" alt="Diversity" align=center/>
 </div>
 
+---
+
 ### 📥 Download
+
 [Click here](https://huggingface.co/datasets/FreedomIntelligence/BlendNet) to view the **samples** and download the **BlendNet**.
 
 
-  
-
 ## 🤖 Model
 
-### Model Access
+### 🔑 Model Access
+
 | Model                | Backbone      | Link                                                                          |
 |----------------------|---------------|-------------------------------------------------------------------------------|
 | BlenderLLM | Qwen2.5-Coder-7B-Instruct | [Model Weights](https://huggingface.co/FreedomIntelligence/BlenderLLM) |
 
+---
 
-<!-- Note that due to that HuatuoGPT-13B-delta is a LLaMA based model, we only release the delta of weights. You can download LLaMA-13B weights and use apply_delta.py to convert:
-```bash 
-python apply_delta.py \
---base-model-path $LLaMA_Base_Path \
---target-model-path $Save_Path \
---delta-path $Delta_Path
-``` -->
+### 🚀 Deploy
 
-<!-- ### 🚀 Deploy
+Firstly, you should install all required packages:
 
-Firstly, you should install all required packages
 ```bash
 pip install -r requirements.txt
 ```
 
-Please make sure you have download our model weights and run
+⚠️ **System Requirement:**  
+Make sure you have installed **Blender** and set its executable path. You can test if Blender is installed by running the following command:
+
 ```bash
-python huatuo_cli_demo_stream.py --model-name $model_dir
-``` -->
+blender --version
+```
+
+If Blender is not installed, download it from the [official Blender website](https://www.blender.org/download/) and ensure its executable is accessible via system paths.  
+
+---
+
+### 🔧 Run Instructions
+
+🔔 **Please make sure you have downloaded our model weights.**
+
+If you **only want to chat** with BlenderLLM, please run:
+
+```bash
+python chat.py \
+    --model_name "$MODEL_NAME" \
+    --prompt "$PROMPT"
+```
+
+If you want to chat with BlenderLLM **and execute scripts to render images**, please run:
+
+```bash
+python modeling.py \
+    --model_name "$MODEL_NAME" \
+    --prompt "$PROMPT" \
+    --obj_name "$OBJ_NAME" \
+    --output_folder "$OUTPUT_FOLDER" \
+    --blender_executable "$BLENDER_EXECUTABLE" \
+    --brightness "$BRIGHTNESS"
+```
+
+---
+
+### Notes:
+1. **`--blender_executable`**: Ensure you provide the correct path to the Blender executable, for example:  
+   - On Windows: `C:\Program Files\Blender Foundation\Blender\blender.exe`  
+   - On macOS/Linux: `/usr/bin/blender` or `/usr/local/bin/blender`
+
+2. **Blender Dependency**:  
+   Blender is required for executing scripts and rendering images. If you skip this, you will only be able to use the chat feature.
 
 
-
-<!-- ## 🚀 Demo
-
-Try our model in [https://www.huatuogpt.cn/](https://www.huatuogpt.cn/). Note that it is still in progressing. -->
-
-<!-- ![demo_1](assets/demo_1.png) -->
-<!-- ![demo_2](assets/demo_2.png) -->
 
 
 
 ## 🧐 Evaluations
 
 ### Benchmark
-We developed a comprehensive benchmark to evaluate the ability of LLMs to generate CAD scripts. Each sample is assessed using specific multi-dimensional criteria. The figure below illustrates the dimensions of the criteria for each sample and the average number of criteria per dimension.
+We developed a comprehensive benchmark, **CADBench**, to evaluate the ability of LLMs to generate CAD scripts. Each sample is assessed using specific multi-dimensional criteria. The figure below illustrates the dimensions of the criteria for each sample and the average number of criteria per dimension.
 
 <div align=center>
 <img src="assets/criteria.png" width = "340"  alt="criteria" align=center/>
 </div>
 
+### 📥 Download
+[Click here](https://huggingface.co/datasets/FreedomIntelligence/CADBench) to view the **samples** and download the **CADBench**.
+
 
 ### Benchmark  Evaluation
 
-We utilized `GPT-4o` to evaluate the aforementioned test set, and the evaluation results are shown in the table below.
+We utilized `GPT-4o` to evaluate LLMs on CADBench, and the evaluation results are shown in the table below.
 
 |                             | | | **CADBench-Sim** | | | | | **CADBench-Wild** | | |
 |-----------------------------|------------|------------|------------|--------------------|---------------|------------|------------|------------|--------------------|---------------|
 | **Models**                  | $Attr.$↑ | $Spat.$↑ | $Inst.$↑ | $Avg.$↑          | $E_{syntax}$↓ | $Attr.$↑ | $Spat.$↑ | $Inst.$↑ | $Avg.$↑          | $E_{syntax}$↓ |
-| **Closed-source Models**    |            |            |            |                    |               |            |            |            |                    |               |
+| **BlenderLLM**              | **0.846**  | **0.760**  | **0.638**  | **0.748 ± 0.085**  | **3.4%**      | **0.739**  | **0.675**  | **0.578**  | **0.664 ± 0.066**  | **3.5%**      |
 | o1-Preview                  | 0.729      | 0.707      | 0.624      | 0.687 ± 0.045      | 15.6%         | 0.595      | 0.612      | 0.542      | 0.583 ± 0.030      | 17.5%         |
 | GPT-4-Turbo                 | 0.658      | 0.621      | 0.488      | 0.589 ± 0.073      | 18.2%         | 0.526      | 0.541      | 0.478      | 0.515 ± 0.027      | 24.5%         |
 | Claude-3.5-Sonnet           | 0.687      | 0.608      | 0.482      | 0.593 ± 0.084      | 15.6%         | 0.529      | 0.508      | 0.430      | 0.489 ± 0.043      | 26.5%         |
 | GPT-4o                      | 0.623      | 0.593      | 0.479      | 0.565 ± 0.062      | 21.4%         | 0.460      | 0.466      | 0.408      | 0.444 ± 0.026      | 28.5%         |
 | BlenderGPT                  | 0.574      | 0.540      | 0.444      | 0.519 ± 0.055      | 25.2%         | 0.402      | 0.425      | 0.368      | 0.398 ± 0.023      | 35.0%         |
 | Gemini-1.5-Pro              | 0.535      | 0.483      | 0.387      | 0.468 ± 0.061      | 30.2%         | 0.375      | 0.404      | 0.361      | 0.380 ± 0.018      | 38.0%         |
-| **Open-source Models**      |            |            |            |                    |               |            |            |            |                    |               |
 | DeepSeek-V2.5               | 0.569      | 0.497      | 0.372      | 0.479 ± 0.081      | 25.2%         | 0.422      | 0.394      | 0.345      | 0.387 ± 0.032      | 34.0%         |
 | Qwen2.5-Coder-7B-Instruct   | 0.457      | 0.352      | 0.251      | 0.353 ± 0.084      | 31.4%         | 0.354      | 0.327      | 0.250      | 0.310 ± 0.044      | 37.0%         |
 | Qwen2.5                     | 0.367      | 0.274      | 0.193      | 0.278 ± 0.071      | 44.8%         | 0.220      | 0.219      | 0.170      | 0.203 ± 0.023      | 58.5%         |
 | LLaMA-3.1-8B-Instruct       | 0.125      | 0.087      | 0.071      | 0.094 ± 0.023      | 76.0%         | 0.130      | 0.127      | 0.105      | 0.120 ± 0.011      | 65.5%         |
 | Mistral-7B-Instruct-V0.3    | 0.015      | 0.018      | 0.015      | 0.016 ± 0.001      | 96.8%         | 0.023      | 0.031      | 0.030      | 0.028 ± 0.004      | 93.0%         |
 | CodeLLaMA-7B-Instruct       | 0.005      | 0.004      | 0          | 0.003 ± 0.002      | 98.8%         | 0.009      | 0.019      | 0.015      | 0.014 ± 0.004      | 96.5%         |
-| **BlenderLLMs (Ours)**      |            |            |            |                    |               |            |            |            |                    |               |
-| Iteration 1                 | 0.784      | 0.689      | 0.517      | 0.663 ± 0.111      | 5.8%          | 0.673      | 0.569      | 0.444      | 0.562 ± 0.094      | 6.0%          |
-| Iteration 2                 | 0.822      | 0.743      | 0.597      | 0.721 ± 0.093      | 5.2%          | 0.689      | 0.608      | 0.473      | 0.590 ± 0.089      | 6.0%          |
-| Iteration 3                 | **0.846**  | 0.760      | **0.638**  | **0.748 ± 0.085**  | 3.4%          | **0.739**  | **0.675**  | **0.578**  | **0.664 ± 0.066**  | **3.5%**      |
-| Iteration 4                 | **0.846**  | **0.767**  | 0.626      | 0.747 ± 0.091      | **3.2%**      | 0.717      | 0.614      | 0.493      | 0.608 ± 0.092      | 5.0%          |
-
-
-<!-- ## ⚒️ Training
-### Prepare the Data
-You can download the SFT data from [HuatuoGPT-sft-data-v1](https://huggingface.co/datasets/FreedomIntelligence/HuatuoGPT-sft-data-v1) or buld your SFT data as the same schema.
-
-### Training
-You can train the model by:
-```bash
-accelerate launch \
-	--config_file scripts/sft.yaml \
-	--num_processes 8 \
-	--num_machines 1 \
-	--machine_rank 0 \
-	--deepspeed_multinode_launcher standard scripts/finetune.py \
-    --experiment_name HuatuoGPT \
-	--model_path /path/to/your/model \
-    --gradient_accumulation_steps 8 \
-    --max_ckpts 3 \
-    --max_seq_len 2048 \
-	--data_dir /path/to/your/data \
-	--output_dir ./ckpts \
-	--log_dir ./train_logs \
-	--n_epochs 3 \
-	--train_bsz_per_gpu 2 \
-	--eval_bsz_per_gpu 2 \
-	--learning_rate 5e-5 \
-	--eval_step -1 \
-	--save_step -1 \
-    --gradient_checkpointing
-``` -->
 
 ## 🌱 Limitations
 
-Our goal with CAD-oriented LLMs is to enhance the efficiency and accessibility of CAD modeling tasks, not to fully replace human designers or cover all aspects of CAD design. However, our model does have several limitations that must be taken into consideration:
+BlenderLLM aims to improve the efficiency and accessibility of CAD modeling tasks but has the following limitations:
 
-- **Basic Modeling Focus**: The current model primarily addresses basic CAD modeling tasks and does not incorporate intricate design aspects such as material properties, surface treatments, or internal structural complexities. These limitations may affect its performance in handling advanced CAD tasks and applications.
+1. **Focus on Basic Modeling**: It primarily handles basic CAD tasks and does not support advanced design aspects such as material properties, surface treatments, or internal structural details.
 
-- **Limited Scope of Output**: The model is designed to generate CAD scripts from user instructions but does not currently support direct CAD model generation or the integration of multimodal inputs, such as combining textual instructions with reference images. This restricts its versatility in addressing more diverse user needs.
+2. **Limited Output Scope**: The model generates CAD scripts from text instructions but does not support direct CAD model creation or multimodal inputs, such as integrating text with images.
 
-- **Absence of Multi-turn Dialogue Capability**: The model has not been trained to handle multi-turn interactions, limiting its ability to engage in complex, iterative dialogues that are often necessary for refining CAD designs in collaborative or interactive scenarios.
+3. **Lack of Multi-turn Dialogue**: It cannot handle iterative, multi-turn interactions, limiting its usefulness for collaborative and interactive design refinements.
 
-These limitations underscore key areas where future research and development efforts should focus, including expanding the scope of the model, incorporating multimodal capabilities, and enabling more sophisticated dialogue interactions.
 
-## Acknowledgement
+## 🙏 Acknowledgement
 
 We are aware that our works are inspired by the following works, including but not limited to
 
