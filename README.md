@@ -45,7 +45,7 @@ Here is a list of what has been released:
 
 ## 📚 Data-BlendNet
 
-### Overview
+### 📖 Overview
 
 The dataset contains $8k$ samples. To balance cost savings with data quality and scale, we manually annotated $2k$ samples and used **GPT-4o** to annotate the remaining $6k$ samples.
 
@@ -123,7 +123,7 @@ python modeling.py \
 
 ---
 
-### Notes:
+### 📝 Notes:
 1. **`--blender_executable`**: Ensure you provide the correct path to the Blender executable, for example:  
    - On Windows: `C:\Program Files\Blender Foundation\Blender\blender.exe`  
    - On macOS/Linux: `/usr/bin/blender` or `/usr/local/bin/blender`
@@ -137,7 +137,7 @@ python modeling.py \
 
 ## 🧐 Evaluations
 
-### Benchmark
+### 📊 Benchmark
 We developed a comprehensive benchmark, **CADBench**, to evaluate the ability of LLMs to generate CAD scripts. Each sample is assessed using specific multi-dimensional criteria. The figure below illustrates the dimensions of the criteria for each sample and the average number of criteria per dimension.
 
 <div align=center>
@@ -148,7 +148,7 @@ We developed a comprehensive benchmark, **CADBench**, to evaluate the ability of
 [Click here](https://huggingface.co/datasets/FreedomIntelligence/CADBench) to view the **samples** and download the **CADBench**.
 
 
-### Benchmark  Evaluation
+### 🧪 Benchmark  Evaluation
 
 We utilized `GPT-4o` to evaluate LLMs on CADBench, and the evaluation results are shown in the table below.
 
