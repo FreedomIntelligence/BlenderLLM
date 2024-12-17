@@ -43,11 +43,11 @@ Here is a list of what has been released:
 - To emphasize the importance of a comprehensive evaluation framework for CAD-oriented LLMs. Establishing rigorous evaluation methodologies is vital to assess and improve model performance, ensuring robust, reliable, and practical solutions for CAD applications.
 
 
-## 📚 Data-BlendNet
+## 📚 BlendNet
 
 ### 📖 Overview
 
-The dataset contains $8k$ samples. To balance cost savings with data quality and scale, we manually annotated $2k$ samples and used **GPT-4o** to annotate the remaining $6k$ samples.
+The dataset contains $12k$ samples. To balance cost savings with data quality and scale, we manually annotated $2k$ samples and used **GPT-4o** to annotate the remaining $10k$ samples.
 
 To ensure diversity, we categorized objects into 16 types, classified instructions into 8 tones, and varied the lengths of the instructions. The figure below illustrate the diversity distribution.
 
@@ -138,7 +138,9 @@ python modeling.py \
 ## 🧐 Evaluations
 
 ### 📊 Benchmark
-We developed a comprehensive benchmark, **CADBench**, to evaluate the ability of LLMs to generate CAD scripts. Each sample is assessed using specific multi-dimensional criteria. The figure below illustrates the dimensions of the criteria for each sample and the average number of criteria per dimension.
+We developed a comprehensive benchmark, **CADBench**, to evaluate the ability of LLMs to generate CAD scripts. It contains 500 simulated data samples and 200 data samples collected from online forums.
+
+Each sample is assessed using specific multi-dimensional criteria. The figure below illustrates the dimensions of the criteria for each sample and the average number of criteria per dimension.
 
 <div align=center>
 <img src="assets/criteria.png" width = "340"  alt="criteria" align=center/>
