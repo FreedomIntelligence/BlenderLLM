@@ -208,7 +208,7 @@ BlenderLLM aims to improve the efficiency and accessibility of CAD modeling task
 
 1. **Focus on Basic Modeling**: It primarily handles basic CAD tasks and does not support advanced design aspects such as material properties, surface treatments, or internal structural details.
 
-2. **Limited Output Scope**: The model generates CAD scripts from text instructions but does not support direct CAD model creation or multimodal inputs, such as integrating text with images.
+2. **Limited input Scope**: The model generates CAD scripts from text instructions but does not support direct CAD model creation or multimodal inputs, such as integrating text with images.
 
 3. **Lack of Multi-turn Dialogue**: It cannot handle iterative, multi-turn interactions, limiting its usefulness for collaborative and interactive design refinements.
 
