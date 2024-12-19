@@ -24,7 +24,7 @@ Welcome to the repository of **BlenderLLM**. **BlenderLLM** is a large language 
 
 Here is a list of what has been released:
 
-1. **BlendNet**: A high-quality dataset containing $8k$ `<instruction, CAD script>` pairs. 
+1. **BlendNet**: A high-quality dataset containing $12k$ `<instruction, CAD script>` pairs. 
 2. **BlenderLLM**: A large language model fine-tuned on BlendNet based on **Qwen2.5-Coder-7B-Instruct**, designed to output CAD scripts. 
 3. **CADBench**: A comprehensive benchmark for evaluating this task.
  

@@ -1,14 +1,14 @@
 import math
 
 CAMERA_ANGLES = [
-    (math.radians(45), 0, math.radians(45)),
-    (math.radians(45), 0, math.radians(135)),
-    (math.radians(45), 0, math.radians(225)),
+    (math.radians(315), math.radians(180), math.radians(135)),
     (math.radians(45), 0, math.radians(315)),
-    (math.radians(315), math.radians(180), math.radians(225)),
-    (math.radians(315), math.radians(180), math.radians(315)),
     (math.radians(315), math.radians(180), math.radians(45)),
-    (math.radians(315), math.radians(180), math.radians(135))
+    (math.radians(45), 0, math.radians(225)),
+    (math.radians(315), math.radians(180), math.radians(225)),
+    (math.radians(45), 0, math.radians(45)),
+    (math.radians(315), math.radians(180), math.radians(315)),
+    (math.radians(45), 0, math.radians(135))
 ]
 
 

@@ -2,7 +2,7 @@ import os
 import argparse
 from scripts.infer import generate_response
 from scripts.blender_runner import run_blender_script
-from scripts.geometry_utils import parse_obj_file, calculate_bounding_box
+from scripts.geometry_utils import calculate_bounding_box
 from scripts.config import CAMERA_ANGLES, BRIGHTNESS
 
 def generate_blender_script(model_name, prompt):
@@ -25,8 +25,7 @@ def run_script_and_save_obj(script, obj_name, output_folder, blender_executable)
 def calculate_and_render_image(script, obj_name, output_folder, obj_path, blender_executable, brightness):
     """Calculate bounding box and render the image using Blender script."""
     ensure_output_folder_exists(output_folder)
-    vertices = parse_obj_file(obj_path)
-    bounding_coords = calculate_bounding_box(vertices)
+    bounding_coords = calculate_bounding_box(obj_path)
     brightness_value = BRIGHTNESS.get(brightness, BRIGHTNESS["Very Dark"])
     run_blender_script(
         script,
@@ -47,7 +46,7 @@ def parse_arguments():
     parser.add_argument("--obj_name", type=str, default="cube", help="Name of the generated object file.")
     parser.add_argument("--output_folder", type=str, default="images/cube", help="Folder to save output files.")
     parser.add_argument("--blender_executable", type=str, default="blender", help="Path to Blender executable.")
-    parser.add_argument("--brightness", type=str, default="Dark", choices=BRIGHTNESS.keys(), help="Brightness level for the rendered image. Options: Very Bright, Bright, Medium Bright, Dark, Very Dark.")
+    parser.add_argument("--brightness", type=str, default="Very Dark", choices=BRIGHTNESS.keys(), help="Brightness level for the rendered image. Options: Very Bright, Bright, Medium Bright, Dark, Very Dark.")
     return parser.parse_args()
 
 def main():
