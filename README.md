@@ -223,15 +223,18 @@ We are aware that our works are inspired by the following works, including but n
 
 Without these, nothing could happen in this repository.
 
-<!-- ## Citation
+## Citation
 ```angular2
-@article{huatuogpt-2023,
-  title={HuatuoGPT, Towards Taming Language Models To Be a Doctor},
-  author={Hongbo Zhang and Junying Chen and Feng Jiang and Fei Yu and Zhihong Chen and Jianquan Li and Guiming Chen and Xiangbo Wu and Zhiyi Zhang and Qingying Xiao and Xiang Wan and Benyou Wang and Haizhou Li},
-  journal={arXiv preprint arXiv:2305.15075},
-  year={2023}
+@misc{du2024blenderllmtraininglargelanguage,
+      title={BlenderLLM: Training Large Language Models for Computer-Aided Design with Self-improvement}, 
+      author={Yuhao Du and Shunian Chen and Wenbo Zan and Peizhao Li and Mingxuan Wang and Dingjie Song and Bo Li and Yan Hu and Benyou Wang},
+      year={2024},
+      eprint={2412.14203},
+      archivePrefix={arXiv},
+      primaryClass={cs.HC},
+      url={https://arxiv.org/abs/2412.14203}, 
 }
-``` -->
+```
 
 We are from the School of Data Science (SDS), the Chinese University of Hong Kong, Shenzhen (CUHKSZ).
 
