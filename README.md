@@ -6,13 +6,13 @@
 # BlenderLLM: Training Large Language Models for Computer-Aided Design with Self-improvement
 
 
-<!-- ## ✨ Latest News
-- [12/11/2023]: 🎉🎉🎉 Our paper is accepted for EMNLP 2023! Check it out [here](https://aclanthology.org/2023.findings-emnlp.725/).
+## ✨ Latest News
+<!-- - [12/11/2023]: 🎉🎉🎉 Our paper is accepted for EMNLP 2023! Check it out [here](https://aclanthology.org/2023.findings-emnlp.725/).
 - [11/25/2023]: We realeased **[HuatuoGPT-II](https://github.com/FreedomIntelligence/HuatuoGPT-II)**, which achieved a new state-of-the-art in Chinese medical applications! See [here](https://github.com/FreedomIntelligence/HuatuoGPT-II).
-- [09/26/2023]: Release [HuatuoGPT-reward-model](https://huggingface.co/FreedomIntelligence/HuatuoGPT-reward-model-7B).
-- [06/30/2023]: Evaluation data of HuatuoGPT released in the `eval/` folder.
-- [06/30/2023]: Release the code, model weights of [HuatuoGPT-7B](https://huggingface.co/FreedomIntelligence/HuatuoGPT-7B) and [HuatuoGPT-13B](https://huggingface.co/FreedomIntelligence/HuatuoGPT-13b-delta)
-- [05/25/2023]: Release the [tech report](https://arxiv.org/pdf/2305.15075.pdf) and the HuatuoGPT [demo](https://www.huatuogpt.cn/). -->
+- [09/26/2023]: Release [HuatuoGPT-reward-model](https://huggingface.co/FreedomIntelligence/HuatuoGPT-reward-model-7B). -->
+- [12/17/2024]: Release the `<instruction, bpy script>` dataset: [BlenderNet](https://huggingface.co/datasets/FreedomIntelligence/BlendNet) and the benchmark: [CADBench](https://huggingface.co/datasets/FreedomIntelligence/CADBench).
+- [12/17/2024]: Release the model weights of [BlenderLLM](https://huggingface.co/FreedomIntelligence/BlenderLLM).
+- [12/16/2024]: Release the [tech report](https://www.arxiv.org/abs/2412.14203).
 
 ## ⚡ Introduction
 <div align=center>
@@ -223,7 +223,7 @@ We are aware that our works are inspired by the following works, including but n
 
 Without these, nothing could happen in this repository.
 
-## Citation
+## 📖 Citation
 ```angular2
 @misc{du2024blenderllmtraininglargelanguage,
       title={BlenderLLM: Training Large Language Models for Computer-Aided Design with Self-improvement}, 
